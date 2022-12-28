@@ -6,9 +6,9 @@ const BookItem = (props) => {
     <li className={styles['book-li']}>
       <div className={styles["about-book"]}>
         <div className={styles["book-info"]}>
-          <h3 className={styles.category}>Category</h3>
-          <h2 className={styles.title}>Title</h2>
-          <p className={styles.author}>Author</p>
+                  <h3 className={styles.category}>{props.book.category}</h3>
+                  <h2 className={styles.title}>{props.book.title}</h2>
+                  <p className={styles.author}>{props.book.author}</p>
         </div>
         <div className={styles["book-settings"]}>
           <ul className={styles["settings-list"]}>

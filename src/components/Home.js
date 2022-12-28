@@ -1,11 +1,11 @@
 import React from 'react';
+import Book from './Book';
 import BookForm from './BookForm';
-import BookItem from './BookItem';
 
 const Home = (props) => {
     return (
         <div>
-            <BookItem/>
+            <Book/>
             <BookForm />
         </div>
     );
