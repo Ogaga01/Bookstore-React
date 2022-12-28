@@ -1,3 +1,4 @@
+import BookItem from "./components/BookItem";
 import Navbar from "./components/Navbar";
 
 function App() {

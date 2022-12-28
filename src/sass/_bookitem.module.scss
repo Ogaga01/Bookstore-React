@@ -1,0 +1,122 @@
+@import './variables';
+
+.book-li {
+    display: flex;
+    width: 80%;
+    margin: 3rem auto;
+    padding: 3rem;
+    background-color: $color-white;
+}
+
+.about-book {
+    width: 40%;
+}
+
+.book-info {
+    margin-bottom: 2rem;
+}
+
+.category {
+    color: $color-grey;
+    font-size: 1.5rem;
+    margin-bottom: .4rem;
+}
+
+.title {
+    color: $color-black;
+    font-size: 2.5rem;
+    margin-bottom: .4rem;
+
+}
+
+.author {
+    color: $color-primary-light;
+    font-size: 1.5rem;
+}
+
+.settings-list {
+    list-style: none;
+    display: flex;
+    font-size: 1.4rem;
+    color: $color-primary-light;
+}
+
+.settings-li {
+    
+     &:not(:last-child) {
+        padding-right: 1rem;
+        margin-right: 1rem;
+        border-right: .1rem solid $color-grey;
+    }
+}
+
+.book-progress {
+    display: flex;
+    width: 25%;
+    padding: 2rem;
+    // align-items: center;
+}
+
+.circle {
+    // height: 5rem;
+    width: 30%;
+}
+
+.empty-div-1 {
+    background-color: $color-primary;
+    height: 100%;
+    width: 100%;
+    // position: relative;
+    border-radius: 50%;
+}
+
+.empty-div-2 {
+    background-color: $color-white;
+    width: 80%;
+    // position: absolute;
+    z-index: 2;
+}
+.prg {
+    margin-left: 1rem;
+}
+
+.percent {
+    font-size: 3rem;
+    font-weight: normal;
+}
+.completed {
+    color: $color-grey;
+    font-size: 1.3rem;
+}
+
+.book-chapter {
+    margin-left: 5rem;
+}
+
+.chapter {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: $color-grey;
+    margin-bottom: 1.5rem;
+}
+
+.chap {
+    font-size: 1.7rem;
+    font-weight: normal;
+    color: $color-black;
+    margin-bottom: 1.5rem;
+}
+
+.update {
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+}
+
+.line {
+    width: .1rem;
+    background-color: $color-grey-light;
+}
