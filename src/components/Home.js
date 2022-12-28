@@ -1,9 +1,10 @@
 import React from 'react';
+import BookForm from './BookForm';
 
 const Home = (props) => {
     return (
         <div>
-            Homeboy
+           <BookForm/>
         </div>
     );
 }
