@@ -42,7 +42,7 @@
 }
 
 .settings-li {
-    
+    cursor: pointer;
      &:not(:last-child) {
         padding-right: 1rem;
         margin-right: 1rem;

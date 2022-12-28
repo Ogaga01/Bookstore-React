@@ -1,19 +1,29 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styles from '../sass/_bookitem.module.scss'
+import { bookActions } from "../store/book-slice";
 
 const BookItem = (props) => {
+    const dispatch = useDispatch()
+
+    const {category, title, author, id} = props.book
+
+    const removeBook = () => {
+        dispatch(bookActions.removeBook(id))
+    }
+
   return (
     <li className={styles['book-li']}>
       <div className={styles["about-book"]}>
         <div className={styles["book-info"]}>
-                  <h3 className={styles.category}>{props.book.category}</h3>
-                  <h2 className={styles.title}>{props.book.title}</h2>
-                  <p className={styles.author}>{props.book.author}</p>
+                  <h3 className={styles.category}>{category}</h3>
+                  <h2 className={styles.title}>{title}</h2>
+                  <p className={styles.author}>{author}</p>
         </div>
         <div className={styles["book-settings"]}>
           <ul className={styles["settings-list"]}>
             <li className={styles["settings-li"]}>Comment</li>
-            <li className={styles["settings-li"]}>Remove</li>
+            <li className={styles["settings-li"]} onClick={removeBook}>Remove</li>
             <li className={styles["settings-li"]}>Edit</li>
           </ul>
         </div>
