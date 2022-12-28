@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import styles from '../sass/_bookform.module.scss'
+import styles from "../sass/_bookform.module.scss";
 import { bookActions } from "../store/book-slice";
 
 const BookForm = (props) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-    const [category, setCategory] = useState("");
-    
-    const dispatch = useDispatch()
+  const [category, setCategory] = useState("");
 
-    const id = (Date.now() + "").slice(-10);
+  const dispatch = useDispatch();
+
+  const id = (Date.now() + "").slice(-10);
 
   const handleTitle = (e) => {
     setTitle(e.target.value);
@@ -22,24 +22,23 @@ const BookForm = (props) => {
 
   const handleCategory = (e) => {
     setCategory(e.target.value);
-    };
-    
-    const submitHandler = (e) => {
-        e.preventDefault()
+  };
 
-        dispatch(bookActions.addbook({title, author, category, id}))
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-        setTitle('')
-        setAuthor('')
-        setCategory('')
-    }
+    dispatch(bookActions.addbook({ title, author, category, id }));
+
+    setTitle("");
+    setAuthor("");
+    setCategory("");
+  };
 
   return (
     <form onSubmit={submitHandler}>
       <h1 className={styles.heading}>Add New Book</h1>
       <>
         <input
-        
           type="text"
           placeholder="Title"
           value={title}
