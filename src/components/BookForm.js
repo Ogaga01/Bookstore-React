@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../sass/_bookform.module.scss'
 
 const BookForm = (props) => {
   const [title, setTitle] = useState("");
@@ -27,9 +28,10 @@ const BookForm = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <h1>Add New Book</h1>
+      <h1 className={styles.heading}>Add New Book</h1>
       <>
         <input
+        
           type="text"
           placeholder="Title"
           value={title}
