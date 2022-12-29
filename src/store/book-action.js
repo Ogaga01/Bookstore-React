@@ -1,4 +1,6 @@
 import { bookActions } from "./book-slice";
+import { uiActions } from "./ui-slice";
+
 
 export const fetchBookData = () => {
   return async (dispatch) => {
@@ -14,36 +16,65 @@ export const fetchBookData = () => {
       return data;
     };
     try {
-      const bookData = await fetchData();
+      const booksData = await fetchData();
       dispatch(
         bookActions.replaceCart({
-          books: bookData.books || [],
+          books: booksData || [],
         })
       );
     } catch (error) {
-      
+      dispatch(
+        uiActions.showNotification({
+          status: "Error",
+          title: "Error",
+          message: "Could not fetch books",
+        })
+      );
     }
   };
 };
 
-export const sendBookData = (books) => {
-  return async () => {
+export const sendBookData = (book) => {
+  return async (dispatch) => {
+    dispatch(
+      uiActions.showNotification({
+        status: "Pending",
+        title: "Sending...",
+        message: "Sending book",
+      })
+    );
 
     const sendRequest = async () => {
       const response = await fetch(
         "https://react-http-33284-default-rtdb.firebaseio.com/books.json",
-        { method: "PUT", body: JSON.stringify(books) }
+        { method: "PUT", body: JSON.stringify(book) }
       );
 
       if (!response) {
-        throw new Error("Could not send data to books");
+        throw new Error("Could not send book");
       }
     };
 
     try {
       await sendRequest();
+
+      dispatch(
+        uiActions.showNotification({
+          status: "success",
+          title: "Success",
+          message: "Sent book successfully",
+        })
+      );
     } catch (error) {
-      
+      sendBookData().catch((error) => {
+        dispatch(
+          uiActions.showNotification({
+            status: "Error",
+            title: "Error",
+            message: "Could not send book",
+          })
+        );
+      });
     }
   };
 };
