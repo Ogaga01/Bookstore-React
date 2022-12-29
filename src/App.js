@@ -1,20 +1,25 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Navbar from "./components/Navbar";
-import { fetchBookData, sendBookData } from "./store/book-action";
+import { useEffect } from "react";
+import { sendBookData } from "./store/book-action";
+import { useDispatch, useSelector } from "react-redux";
+
+let isInitial = true
 
 function App() {
-  const books = useSelector((state) => { return state.bookSlice.books })
+  const books = useSelector((state) => {
+    return state.bookSlice.books;
+  });
 
   const dispatch = useDispatch()
-  
-  useEffect(() => {
-    dispatch(fetchBookData())
-  }, [dispatch])
 
   useEffect(() => {
-    sendBookData(books)
-  }, [books])
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+
+    dispatch(sendBookData(books));
+  }, [books, dispatch]);
 
   return (
     <>
