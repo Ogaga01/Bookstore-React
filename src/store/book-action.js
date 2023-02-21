@@ -6,9 +6,9 @@ export const fetchBookData = () => {
   return async (dispatch) => {
     const fetchData = async () => {
       const response = await fetch(
-        "https://react-http-33284-default-rtdb.firebaseio.com/books.json"
+        "https://bookstore-ababd-default-rtdb.firebaseio.com/books.json"
       );
-
+console.log(Date.now().toString())
       if (!response) {
         throw new Error("Could not get books");
       }
@@ -46,7 +46,7 @@ export const sendBookData = (book) => {
 
     const sendRequest = async () => {
       const response = await fetch(
-        "https://react-http-33284-default-rtdb.firebaseio.com/books.json",
+        "https://bookstore-ababd-default-rtdb.firebaseio.com/books.json",
         { method: "PUT", body: JSON.stringify(book) }
       );
 
